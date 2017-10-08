@@ -4,6 +4,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from taggit.managers import TaggableManager
 
 #from .models import Post, Comment
 #from .forms import EmailPostForm, CommentForm
@@ -28,6 +29,7 @@ class Post(models.Model):
 
 	objects = models.Manager() # The default manager.
 	published = PublishedManager() # Our custom manager.
+	tags = TaggableManager()
 
 	def get_absolute_url(self):
 		return reverse('blog:post_detail',args=[self.publish.year,self.publish.strftime('%m'),
