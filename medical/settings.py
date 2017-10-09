@@ -23,6 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'j8@s=22dufr@_1sq56-e%!dt7+o2pjd+tom-0_x+u(9oy31k0+'
 
 #sitemap
+SITE_ID = 1
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
