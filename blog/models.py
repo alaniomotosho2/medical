@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
 
+from markdownx.models import MarkdownxField
+
 #from .models import Post, Comment
 #from .forms import EmailPostForm, CommentForm
 
@@ -22,6 +24,7 @@ class Post(models.Model):
 	slug = models.SlugField(max_length=250,unique_for_date='publish')
 	author = models.ForeignKey(User,related_name='blog_posts')
 	body = models.TextField()
+	myfield = MarkdownxField()
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
@@ -56,5 +59,13 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return 'Comment by {} on {}'.format(self.name, self.post)
+
+
+
+
+
+
+class MyModel(models.Model):
+	myfield = MarkdownxField()
 
 

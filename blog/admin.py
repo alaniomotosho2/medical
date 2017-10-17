@@ -5,6 +5,12 @@ from django.contrib import admin
 
 from .models import Post, Comment
 
+
+from markdownx.admin import MarkdownxModelAdmin
+from .models import MyModel
+
+
+
 #admin.site.register(Post)
 
 
@@ -20,11 +26,13 @@ class PostAdmin(admin.ModelAdmin):
 	list_display = ('title', 'slug', 'author', 'publish','status')
 	#admin.site.register(Post, PostAdmin)
 	list_filter = ('status', 'created', 'publish', 'author')
-	search_fields = ('title', 'body')
+	search_fields = ('title', 'body','myfield ')
 	prepopulated_fields = {'slug': ('title',)}
 	raw_id_fields = ('author',)
 	date_hierarchy = 'publish'
 	ordering = ['status', 'publish']
+
+	#myfield = MarkdownxField()
 
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('name', 'email', 'post', 'created', 'active')
@@ -33,6 +41,11 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 
+
+
+
+
+admin.site.register(MyModel, MarkdownxModelAdmin)
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
