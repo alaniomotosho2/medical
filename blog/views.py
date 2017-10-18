@@ -126,9 +126,7 @@ def query(request, tag_slug=None):
 
     if request.method == 'POST':
         data = request.POST.get('qry')
-        print data
         if data is not None:
-            print "stupidddddddddddd"
             flter = Post.objects.filter(myfield__icontains=data)
             return render(request,'blog/post/query.html',{'flter':flter})
 
