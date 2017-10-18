@@ -7,9 +7,7 @@ from .models import Post, Comment
 
 
 from markdownx.admin import MarkdownxModelAdmin
-from .models import MyModel
-
-
+from .models import MyModel, Download
 
 #admin.site.register(Post)
 
@@ -40,12 +38,12 @@ class CommentAdmin(admin.ModelAdmin):
 	search_fields = ('name', 'email', 'body')
 
 
-
-
-
+class DownloadAdmin(admin.ModelAdmin):
+	list_display = ('filee','comments')
 
 
 admin.site.register(MyModel, MarkdownxModelAdmin)
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Download,DownloadAdmin);

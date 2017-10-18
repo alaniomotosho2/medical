@@ -17,10 +17,19 @@ Share this post
 </p>
 
 {% with comments.count as total_comments %}
-<h2>
+<h2 class="cmtHead">
 {{ total_comments }} comment{{ total_comments|pluralize }}
 </h2>
 {% endwith %}
+
+
+
+
+
+
+<div class="alert alert-secondary" role="alert">
+  
+
 {% for comment in comments %}
 <div class="comment">
 <p class="info">
@@ -30,17 +39,27 @@ Comment {{ forloop.counter }} by {{ comment.name }}
 {{ comment.body|linebreaks }}
 </div>
 {% empty %}
-<p>There are no comments yet.</p>
+<p class="cmt">There are no comments yet.</p>
 {% endfor %}
+
+
+
+
+</div>
+
+
+
+
+
 {% if new_comment %}
-<h2>Your comment has been added.</h2>
+<h2 class="cmt">Your comment has been added.</h2>
 {% else %}
-<h2>Add a new comment<i class="fa fa-commenting-o" aria-hidden="true"></i>
+<h2 class="cmt">Add a new comment<i class="fa fa-commenting-o" aria-hidden="true"></i>
 </h2>
 <form action="." method="post">
 {{ comment_form.as_p }}
 {% csrf_token %}
-<p><input type="submit" class="btn btn-default" value="Add Comment"> </p>
+<p><input style="cursor:pointer" type="submit" class="btn btn-info btn-lg" value="Add Comment"> </p>
 </form>
 {% endif %}
 

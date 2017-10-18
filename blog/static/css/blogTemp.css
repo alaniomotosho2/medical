@@ -186,3 +186,24 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+p.date { 
+    color:#32CD32;
+    font-family: georgia, serif;
+    font-size: 12px;
+    font-style: italic; 
+}
+.cmt{
+  color:#333;
+  font-size: 20px;
+
+}
+.cmtshare{
+  font-size: 20px;
+}
+.cmtHead{
+  font-size: 20px;
+}
+body{
+  color:#333;
+}

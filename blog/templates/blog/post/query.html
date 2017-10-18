@@ -1,0 +1,20 @@
+{% extends "blog/baseTemp.html" %}
+{% load blog_tags %}
+{% load staticfiles %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+    {% if tag %}
+        <h4>Posts tagged with "{{ tag.name }}"</h4>
+    {% endif %}
+    <img src="{% static "images/cv.jpeg" %}" alt="My image"/>
+    <img src="{% static "images/hyk.png" %}" alt="My image"/>
+    <center><h4>Search Result</h4></center>
+    {% for post in flter %}
+        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+       
+    {% endfor %}
+    
+{% endblock %}

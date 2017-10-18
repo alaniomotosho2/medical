@@ -69,3 +69,8 @@ class MyModel(models.Model):
 	myfield = MarkdownxField()
 
 
+class Download(models.Model):
+	comments = models.CharField(max_length=200);
+	filee = models.FileField()
+
+

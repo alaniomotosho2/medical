@@ -1,0 +1,23 @@
+{% extends "blog/baseTemp.html" %}
+{% load blog_tags %}
+{% load staticfiles %}
+
+   {% block title %}My Blog/Latest Post{% endblock %}
+
+{% block content %}
+   
+ 
+<ul>
+{% for post in latest %}
+<li>
+<span>
+	<a href="{{ post.get_absolute_url }}">{{ post.title }}</a><i class="fa fa-hand-o-left" aria-hidden="true"></i>
+
+    <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+</span>
+</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

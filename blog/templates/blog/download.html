@@ -1,0 +1,20 @@
+{% extends "blog/baseTemp.html" %}
+{% load blog_tags %}
+{% load staticfiles %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+    <center>
+        <h2>Interesting Research Paper for Download/Reading</h2>
+        <ul>
+        {% for download in downloads %}
+            <li>
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <a href="{{download.filee.url }}">{{download.comments}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </center>
+    
+{% endblock %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'markdownx',
+    #'crispy_forms',
     #'haystack',
 ]
 
@@ -132,6 +133,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+
+#CRISPY_TEMPLATE_PACK = 'uni_form'
 
 STATIC_URL = '/static/'
 

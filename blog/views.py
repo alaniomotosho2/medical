@@ -5,8 +5,11 @@ from django.core.mail import send_mail
 from django.db.models import Count
 
 from taggit.models import Tag
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.shortcuts import render
 
-from .models import Post, Comment
+from .models import Post, Comment, Download
 from .forms import EmailPostForm, CommentForm
 
 
@@ -89,10 +92,56 @@ def post_share(request, post_id):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = '{} ({}) recommends you reading "{}"'.format(cd['name'], cd['email'], post.title)
             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
-            send_mail(subject, message, 'admin@myblog.com', [cd['to']])
+            send_mail(subject, message, 'alaniomotosho2@gmail.com', [cd['to']])
             sent = True
     else:
         form = EmailPostForm()
     return render(request, 'blog/post/share.html', {'post': post,
                                                     'form': form,
                                                     'sent': sent})
+
+
+def latest_post(request):
+    try:
+        latest = Post.objects.all()
+    except Post.DoesNotExist:
+        raise Http404("No Post Exist")
+    return render(request,'blog/post/latest_post.html',{'latest':latest})
+
+def about(request):
+    return render(request,'blog/about.html')
+
+def download(request):
+    downloads = Download.objects.all();
+    return render(request,'blog/download.html',{'downloads':downloads})
+
+
+def query(request, tag_slug=None):
+    object_list = Post.published.all()
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
+
+    if request.method == 'POST':
+        data = request.POST.get('qry')
+        print data
+        if data is not None:
+            print "stupidddddddddddd"
+            flter = Post.objects.filter(myfield__icontains=data)
+            return render(request,'blog/post/query.html',{'flter':flter})
+
+    paginator = Paginator(object_list, 3) # 3 posts in each page
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'blog/post/list.html', {'page': page,
+                                                   'posts': posts,
+                                                   'tag': tag})
