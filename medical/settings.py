@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'markdownx',
+    'ckeditor',
+    'ckeditor_uploader',
     #'crispy_forms',
     #'haystack',
 ]
@@ -129,6 +131,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 # Static files (CSS, JavaScript, Images)

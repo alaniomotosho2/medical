@@ -41,9 +41,13 @@ class CommentAdmin(admin.ModelAdmin):
 class DownloadAdmin(admin.ModelAdmin):
 	list_display = ('filee','comments')
 
+#class PosttAdmin(admin.ModelAdmin):
+#	list_display = ('content','cont')
+
 
 #admin.site.register(MyModel, MarkdownxModelAdmin)
 
+#admin.site.register(Postt,PosttAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Download,DownloadAdmin);

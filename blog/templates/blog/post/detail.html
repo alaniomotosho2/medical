@@ -8,7 +8,7 @@
 Published {{ post.publish }} by {{ post.author }}
 <div class="well">
 </p>
-{{ post.myfield|markdown }}
+{{ post.body|markdown }}
 <p>
 </div>
 <a href="{% url "blog:post_share" post.id %}">

@@ -8,6 +8,9 @@ from taggit.managers import TaggableManager
 
 from markdownx.models import MarkdownxField
 
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 #from .models import Post, Comment
 #from .forms import EmailPostForm, CommentForm
 
@@ -24,7 +27,8 @@ class Post(models.Model):
 	slug = models.SlugField(max_length=250,unique_for_date='publish')
 	author = models.ForeignKey(User,related_name='blog_posts')
 	#body = models.TextField()
-	body = MarkdownxField()
+	body = RichTextUploadingField()
+	#body = MarkdownxField()
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
@@ -73,4 +77,10 @@ class Download(models.Model):
 	comments = models.CharField(max_length=200);
 	filee = models.FileField()
 
+
+
+
+#class Postt(models.Model):
+#	content = RichTextField()
+#	cont = RichTextUploadingField()
 
