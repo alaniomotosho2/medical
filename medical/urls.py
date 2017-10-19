@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.conf import settings
 from django.conf.urls.static import static
+from blog import views
 
 sitemaps = {
 'posts': PostSitemap,
@@ -30,6 +31,7 @@ sitemaps = {
 
 
 urlpatterns = [
+    url(r'^$',views.post_list,name='post_list'),
 	url(r'^admin/', include(admin.site.urls)),
     url(r'^markdownx/', include('markdownx.urls')),
 	url(r'^blog/', include('blog.urls',namespace='blog',app_name='blog')),

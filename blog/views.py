@@ -13,6 +13,7 @@ from .models import Post, Comment, Download
 from .forms import EmailPostForm, CommentForm
 
 
+
 def post_list(request, tag_slug=None):
     object_list = Post.published.all()
     tag = None
