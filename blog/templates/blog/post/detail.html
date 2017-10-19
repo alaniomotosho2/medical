@@ -1,4 +1,5 @@
 {% extends "blog/baseTemp.html" %}
+{% load crispy_forms_tags %}
 {% load blog_tags %}
 {% load staticfiles %}
 {% load static %}
@@ -58,9 +59,9 @@ Comment {{ forloop.counter }} by {{ comment.name }}
 </h2>
 <!--fix here later-->
 <form action="." method="post">
-{{ comment_form.media }}
-{{ comment_form.as_p }}
 {% csrf_token %}
+{{ comment_form|crispy }}
+<!--{{ comment_form.as_p }}-->
 <p><input style="cursor:pointer" type="submit" class="btn btn-info btn-lg" value="Add Comment"> </p>
 </form>
 {% endif %}

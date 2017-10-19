@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'markdownx',
     'ckeditor',
     'ckeditor_uploader',
-    #'crispy_forms',
+    'crispy_forms',
     #'haystack',
 ]
 
