@@ -7,7 +7,7 @@ from .models import Post, Comment
 
 
 from markdownx.admin import MarkdownxModelAdmin
-from .models import MyModel, Download
+from .models import  Download
 
 #admin.site.register(Post)
 
@@ -42,7 +42,7 @@ class DownloadAdmin(admin.ModelAdmin):
 	list_display = ('filee','comments')
 
 
-admin.site.register(MyModel, MarkdownxModelAdmin)
+#admin.site.register(MyModel, MarkdownxModelAdmin)
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)

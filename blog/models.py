@@ -65,8 +65,8 @@ class Comment(models.Model):
 
 
 
-class MyModel(models.Model):
-	myfield = MarkdownxField()
+#class MyModel(models.Model):
+#	body = MarkdownxField()
 
 
 class Download(models.Model):
