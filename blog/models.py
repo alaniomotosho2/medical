@@ -10,6 +10,7 @@ from markdownx.models import MarkdownxField
 
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.widgets import CKEditorWidget
 
 #from .models import Post, Comment
 #from .forms import EmailPostForm, CommentForm

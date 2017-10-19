@@ -52,6 +52,7 @@ def post_detail(request, year, month, day, post):
                                    publish__day=day)
 
     # List of active comments for this post
+    new_comment = False
     comments = post.comments.filter(active=True)
     if request.method == 'POST':
         # A comment was posted
@@ -76,7 +77,8 @@ def post_detail(request, year, month, day, post):
     return render(request, 'blog/post/detail.html', {'post': post,
                                                      'comments': comments,
                                                      'comment_form': comment_form,
-                                                     'similar_posts': similar_posts})
+                                                     'similar_posts': similar_posts,
+                                                     'new_comment':new_comment,})
 
 
 def post_share(request, post_id):
@@ -128,7 +130,7 @@ def query(request, tag_slug=None):
     if request.method == 'POST':
         data = request.POST.get('qry')
         if data is not None:
-            flter = Post.objects.filter(myfield__icontains=data)
+            flter = Post.objects.filter(body__icontains=data)
             return render(request,'blog/post/query.html',{'flter':flter})
 
     paginator = Paginator(object_list, 3) # 3 posts in each page

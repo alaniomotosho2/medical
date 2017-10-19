@@ -1,6 +1,7 @@
 {% extends "blog/baseTemp.html" %}
 {% load blog_tags %}
 {% load staticfiles %}
+{% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 <h3 style="color:#00abff;">{{ post.title }}</h4>
@@ -17,7 +18,7 @@ Share this post
 </p>
 
 {% with comments.count as total_comments %}
-<h2 class="cmtHead">
+<h2 class="text-info cmtHead">
 {{ total_comments }} comment{{ total_comments|pluralize }}
 </h2>
 {% endwith %}
@@ -31,15 +32,15 @@ Share this post
   
 
 {% for comment in comments %}
-<div class="comment">
-<p class="info">
+<div style="color:#333;" class="comment">
+<p class="text-info  cmt">
 Comment {{ forloop.counter }} by {{ comment.name }}
 {{ comment.created }}
 </p>
 {{ comment.body|linebreaks }}
 </div>
 {% empty %}
-<p class="cmt">There are no comments yet.</p>
+<p  class="cmt">There are no comments yet.</p>
 {% endfor %}
 
 
@@ -50,13 +51,14 @@ Comment {{ forloop.counter }} by {{ comment.name }}
 
 
 
-
 {% if new_comment %}
-<h2 class="cmt">Your comment has been added.</h2>
+<h2 class="text-info cmt">Your comment has been added.</h2>
 {% else %}
-<h2 class="cmt">Add a new comment<i class="fa fa-commenting-o" aria-hidden="true"></i>
+<h2 class="text-info  cmt">Add a new comment<i class="fa fa-commenting-o" aria-hidden="true"></i>
 </h2>
+<!--fix here later-->
 <form action="." method="post">
+{{ comment_form.media }}
 {{ comment_form.as_p }}
 {% csrf_token %}
 <p><input style="cursor:pointer" type="submit" class="btn btn-info btn-lg" value="Add Comment"> </p>

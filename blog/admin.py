@@ -50,4 +50,4 @@ class DownloadAdmin(admin.ModelAdmin):
 #admin.site.register(Postt,PosttAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
-admin.site.register(Download,DownloadAdmin);
+admin.site.register(Download,DownloadAdmin)
