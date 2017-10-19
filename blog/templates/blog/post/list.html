@@ -8,8 +8,8 @@
     {% if tag %}
         <h4>Posts tagged with "{{ tag.name }}"</h4>
     {% endif %}
-    <img src="{% static "images/cv.jpeg" %}" alt="My image"/>
-    <img src="{% static "images/hyk.png" %}" alt="My image"/>
+    <img class="rounded float-left" src="{% static "images/cv.jpeg" %}" alt="My image"/>
+    <img   class="rounded float-left" src="{% static "images/hyk.png" %}" alt="My image"/>
     {% for post in posts %}
         <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
         <p class="tags">
