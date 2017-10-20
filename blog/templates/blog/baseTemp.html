@@ -25,74 +25,6 @@
 
 
 
- /* For mobile phones: */
-[class*="col-"] {
-    width: 100%;
-}
-@media only screen and (min-width: 600px) {
-    /* For tablets: */
-    .col-m-1 {width: 8.33%;}
-    .col-m-2 {width: 16.66%;}
-    .col-m-3 {width: 25%;}
-    .col-m-4 {width: 33.33%;}
-    .col-m-5 {width: 41.66%;}
-    .col-m-6 {width: 50%;}
-    .col-m-7 {width: 58.33%;}
-    .col-m-8 {width: 66.66%;}
-    .col-m-9 {width: 75%;}
-    .col-m-10 {width: 83.33%;}
-    .col-m-11 {width: 91.66%;}
-    .col-m-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-} 
-
-
-
-/*
-
-    320px
-    480px
-    600px
-    768px
-    900px
-    1024px
-    1200px
-*/
-
-
-
-/*this offer some
-hope
-*/
-@media screen and (max-width: 1200px) {
-    .blog-masthead { 
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .blog-masthead {
-        width: 30%;
-    }
-}
-
-
-
-
 
 
 
@@ -116,7 +48,7 @@ hope
           <!--<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>-->
           <a class="nav-link" href="{% url "blog:latest_post" %}">new post</a>
           <a class="nav-link" href="{% url "blog:download" %}">
-            <i class="fa fa-download" aria-hidden="true">download research paper</i>
+            <i class="fa fa-download" aria-hidden="true">downloads</i>
           </a>
           <a class="nav-link" href="{% url "blog:about" %}">
           <i class="fa fa-users" aria-hidden="true"></i>
@@ -145,9 +77,9 @@ hope
     </div>
 
 
-    <div class="container-fluid cont">
+    <div class="container cont">
 
-      <div class="well row align-items-start">
+      <div class="row align-items-start">
 
         <div  class="col-sm-8   mr-auto blog-main">
             {% block content %}
@@ -167,11 +99,11 @@ hope
         </form>
           </div>
         <div class="sidebar-module sidebar-module-inset">
-            <h4><small>Latest posts</small></h4>
+            <h4 class="lead"><small>Latest posts</small></h4>
             {% show_latest_posts 3 %}
           </div>
           <div class="sidebar-module sidebar-module-inset">
-            <h4><small>Most commented posts</small></h4>
+            <h4><small class="lead">Most commented posts</small></h4>
               {% get_most_commented_posts as most_commented_posts %}
             <ul>
             {% for post in most_commented_posts %}
@@ -180,8 +112,8 @@ hope
             </ul>
           </div>
           <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>We are graduate <em>Pharmacy</em> interested in research about just about anything on health</p>
+            <!--<h4 class="lead">About</h4>-->
+            <!--<p>We are graduate <em>Pharmacy</em> interested in research about just about anything on health</p>-->
              <p><a href="{% url "blog:post_feed" %}">
              <i class="fa fa-rss" aria-hidden="true"></i>
               Subscribe to my RSS feed</a></p>

@@ -9,39 +9,78 @@
 }
 
 
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) { 
+  body {
+        background-color: green;
+        display: block;
+        font-size: 1.8rem;
+        width: 100%;
+    }
+}
 
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) { 
+  body {
+        background-color: green;
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+    }
+}
 
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991px) {
+  body {
+        background-color: green;
+        display: block;
+        font-size: 1.4rem;
+        /*width: 100%;*/
+    }
+ }
 
-
-
-@media only screen and (max-width: 500px) {
-    body {
-        background-color: lightblue;
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199px) { 
+  body {
+        background-color: green;
+        font-size: 1.6rem;
+        display: block;
+        /*width: 100%;*/
     }
 }
 
 
-// Example usage:
-@include media-breakpoint-up(sm) {
-  .some-class {
-    display: block;
-  }
+
+/**/
+
+
+
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 0.9em;
+         display: block;
+        width: 100%;
+    }
 }
 
+/* sm */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1em;
+         display: block;
+        width: 100%;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* md */
+@media screen and (min-width: 992px) {
+    body {
+        font-size: 1.2em;
+         display: block;
+        width: 100%;
+    }
+}
 
 
 

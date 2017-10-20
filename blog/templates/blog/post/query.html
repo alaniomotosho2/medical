@@ -12,7 +12,10 @@
     <img src="{% static "images/hyk.png" %}" alt="My image"/>
     <center><h4>Search Result</h4></center>
     {% for post in flter %}
-        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+
+        <p style="font-size:40px" class="display-4 text-center font-italic">
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+
         <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
        
     {% endfor %}
