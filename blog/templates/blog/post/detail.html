@@ -5,7 +5,7 @@
 {% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
-<p style="font-size:40px;color:#00abff;" class="display-4 text-center font-italic">{{ post.title }}</p>
+<p style="font-size:40px;color:#696969;;" class="display-4  font-italic">{{ post.title }}</p>
 <p class="date">
 Published {{ post.publish }} by {{ post.author }}
 <div class="well">
@@ -19,7 +19,7 @@ Share this post
 </p>
 
 {% with comments.count as total_comments %}
-<h2 class="text-info cmtHead">
+<h2 style="color:#696969;font-size:30px;" class="display-4  font-italic">
 {{ total_comments }} comment{{ total_comments|pluralize }}
 </h2>
 {% endwith %}
@@ -38,7 +38,10 @@ Share this post
 Comment {{ forloop.counter }} by {{ comment.name }}
 {{ comment.created }}
 </p>
+<p style="word-wrap: break-word;" class="text-justify">
 {{ comment.body|linebreaks }}
+</p>
+
 </div>
 {% empty %}
 <p  class="cmt">There are no comments yet.</p>
@@ -55,14 +58,14 @@ Comment {{ forloop.counter }} by {{ comment.name }}
 {% if new_comment %}
 <h2 class="text-info cmt">Your comment has been added.</h2>
 {% else %}
-<h2 class="text-info  cmt">Add a new comment<i class="fa fa-commenting-o" aria-hidden="true"></i>
+<h2 style="color:#696969;font-size:30px;" class="display-4  font-italic">Add a new comment<i class="fa fa-commenting-o" aria-hidden="true"></i>
 </h2>
 <!--fix here later-->
 <form action="." method="post">
 {% csrf_token %}
 {{ comment_form|crispy }}
 <!--{{ comment_form.as_p }}-->
-<p><input style="cursor:pointer" type="submit" class="btn btn-info btn-lg" value="Add Comment"> </p>
+<p><input style="cursor:pointer" type="submit" class="btn btn-secondary"btn-lg" value="Add Comment"> </p>
 </form>
 {% endif %}
 
