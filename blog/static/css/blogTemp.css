@@ -8,6 +8,47 @@
   }
 }
 
+
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+
+// Example usage:
+@include media-breakpoint-up(sm) {
+  .some-class {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color:#333;
