@@ -114,8 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 #setting smtp
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'alaniomotosho2@gmail.com'
-EMAIL_HOST_PASSWORD = '<>,a,la,ni,1990,<>,'
+EMAIL_HOST_USER = 'ddd@gmail.com'
+EMAIL_HOST_PASSWORD = 'pwd,'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
